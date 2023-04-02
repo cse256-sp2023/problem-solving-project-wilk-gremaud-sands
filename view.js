@@ -72,3 +72,4 @@ $('.permbutton').click( function( e ) {
 
 // ---- Assign unique ids to everything that doesn't have an ID ----
 $('#html-loc').find('*').uniqueId() 
+$('.permbutton').append('Permissions')
