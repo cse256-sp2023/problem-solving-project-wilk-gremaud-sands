@@ -481,7 +481,8 @@ function define_new_user_select_field(id_prefix, select_button_text, on_user_cha
     let sel_section = $(`<div id="${id_prefix}_line" class="section">
             <span id="${id_prefix}_field" class="ui-widget-content" style="width: 80%;display: inline-block;">&nbsp</span>
             <button id="${id_prefix}_button" class="ui-button ui-widget ui-corner-all">${select_button_text}</button>
-        </div>`)
+        </div>
+        <p>To check the permissible actions for a user for any given file, select a user and then select any file.</p>`)
 
     // Open user select on button click:
     sel_section.find(`#${id_prefix}_button`).click(function(){

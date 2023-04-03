@@ -1,6 +1,40 @@
 // ---- Define your dialogs  and panels here ----
+var new_perms = define_new_effective_permissions("permissions-panel", true);
+$('#sidepanel').append(new_perms);
+$('#permissions-panel').attr('filepath', "");
+var new_user = define_new_user_select_field("user", 'Select User', function(selected_user) {$('#permissions-panel').attr('username', selected_user);});
+$('#sidepanel').append(new_user);
 
+$('.fa-info-circle').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Permission");
+    new_dialog.dialog('open');
 
+    let my_filename_var = $('#permissions-panel').attr('filepath');
+    let my_user_var = $('#permissions-panel').attr('username');
+    let my_permission = $(this).attr('permission_name');
+
+    let my_file_obj_var = path_to_file[my_filename_var];
+    let my_user_obj_var = all_users[my_user_var];
+    
+    let explanation = allow_user_action(my_file_obj_var, my_user_obj_var, my_permission, true);
+
+    let explanation_text = get_explanation_text(explanation);
+
+    new_dialog.text(explanation_text);
+});
+
+$(document).on( "click", '.file', function() {
+    //when click on file, show permissions for the selected user
+    //user must be selected for permissions to show
+    var fp = $(this).attr('id');
+    $('#permissions-panel').attr('filepath', fp.substring(0, fp.length-4));
+    
+    //when file is selected, change background color to highlight
+    $('.file').css("background-color", "white");
+    $('.file').css("color", "black");
+    $(this).css("background-color", "#007fff");
+    $(this).css("color", "white");
+});
 
 // ---- Display file structure ----
 
