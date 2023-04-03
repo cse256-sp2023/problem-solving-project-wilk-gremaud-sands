@@ -5,6 +5,7 @@ $('#permissions-panel').attr('filepath', "");
 var new_user = define_new_user_select_field("user", 'Select User', function(selected_user) {$('#permissions-panel').attr('username', selected_user);});
 $('#sidepanel').append(new_user);
 $('#sidepanel').append($('<p>To check the permissible actions for a user for any given file, select a user and then select any file.</p>'));
+$('#wrapper').append($('<br><br><p>How do file permissions work? <br><br> A user has a list of permissible actions for a given file or folder. These permissions may be set according to that file or folder, or they may inherit permission rules from a parent folder. <br> For example, if you find that a user can access only one file in a folder, it may be that the user was only given access to that single file and lacks allow permissions for the parent folder.</p>'));
 
 $('.perm_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Permission");
