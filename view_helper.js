@@ -214,7 +214,7 @@ function define_grouped_permission_checkboxes(id_prefix, which_groups = null) {
             <th id="${id_prefix}_header_p" width="99%">Permissions for <span id="${id_prefix}_header_username"></span>
             </th>
             <th id="${id_prefix}_header_allow">Allow</th>
-            <th id="${id_prefix}_header_deny">Deny</th>
+            <th id="${id_prefix}_header_deny">Deny <span id="${id_prefix}_info_icon" class="fa fa-info-circle permdialog_deny_info"></th>
         </tr>
     </table>
     `)
@@ -481,8 +481,7 @@ function define_new_user_select_field(id_prefix, select_button_text, on_user_cha
     let sel_section = $(`<div id="${id_prefix}_line" class="section">
             <span id="${id_prefix}_field" class="ui-widget-content" style="width: 80%;display: inline-block;">&nbsp</span>
             <button id="${id_prefix}_button" class="ui-button ui-widget ui-corner-all">${select_button_text}</button>
-        </div>
-        <p>To check the permissible actions for a user for any given file, select a user and then select any file.</p>`)
+        </div>`)
 
     // Open user select on button click:
     sel_section.find(`#${id_prefix}_button`).click(function(){

@@ -4,8 +4,9 @@ $('#sidepanel').append(new_perms);
 $('#permissions-panel').attr('filepath', "");
 var new_user = define_new_user_select_field("user", 'Select User', function(selected_user) {$('#permissions-panel').attr('username', selected_user);});
 $('#sidepanel').append(new_user);
+$('#sidepanel').append($('<p>To check the permissible actions for a user for any given file, select a user and then select any file.</p>'));
 
-$('.fa-info-circle').click( function() {
+$('.perm_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Permission");
     new_dialog.dialog('open');
 
@@ -19,6 +20,15 @@ $('.fa-info-circle').click( function() {
     let explanation = allow_user_action(my_file_obj_var, my_user_obj_var, my_permission, true);
 
     let explanation_text = get_explanation_text(explanation);
+
+    new_dialog.text(explanation_text);
+});
+
+$('.permdialog_deny_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Override Capabilities of Deny");
+    new_dialog.dialog('open');
+
+    let explanation_text = "DENY IS MORE POWERFUL THAN ALLOW! \n Marking deny for a user will disallow the user from that action, regardless of any allow permissions they may have previously inherited."
 
     new_dialog.text(explanation_text);
 });
