@@ -3,6 +3,10 @@
     border-bottom: 1px solid #dddddd;
 }
 
+.file:hover{
+    background-color: rgb(172, 170, 170);
+}
+
 .section {
     margin-bottom: 5px;
 }
