@@ -5,8 +5,14 @@
 // $('#permissions-panel').attr('filepath', "");
 // var new_user = define_new_user_select_field("user", 'Select User', function(selected_user) {$('#permissions-panel').attr('username', selected_user);});
 // $('#sidepanel').append(new_user);
-$('#wrapper').append($('<br><br><p>How do file permissions work? <br><br> A user has a list of permissible actions for a given file or folder. These permissions may be set according to that file or folder, or they may inherit permission rules from a parent folder. <br> For example, if you find that a user can access only one file in a folder, it may be that the user was only given access to that single file and lacks allow permissions for the parent folder.</p>'));
 
+//css and add instructions to every page
+$('#filestructure').css("width", "100%");
+$('#wrapper').append($('<br><br><div style="margin-left: 3vw;"><p>How do file permissions work? <br><br> A user has a list of permissible actions for a given file or folder. These permissions may be set according to that file or folder, or they may inherit permission rules from a parent folder. <br> For example, if you find that a user can access only one file in a folder, it may be that the user was only given access to that single file and lacks allow permissions for the parent folder.</p></div>'));
+$('#adv_perm_entries_text').append("<span id=\"${id_prefix}_info_icon\" class=\"fa fa-info-circle permdialog_missing_users_info\"></span>");
+$('#adv_permissions_tab').prepend("<p>To use inherited permissions, user(s) must first be added to the file/folder, and <i>then</i> inherited permissions may be turned on by checking \"Inherit Parent Permissions.\"\nSimilarly, inherited permissions must be removed from a user before removing them from a file/folder.</p><br>");
+
+//permission panel (unused)
 $('.perm_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Permission");
     new_dialog.dialog('open');
@@ -25,6 +31,7 @@ $('.perm_info').click( function() {
     new_dialog.text(explanation_text);
 });
 
+//deny dialog info box
 $('.permdialog_deny_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Override Capabilities of Deny");
     new_dialog.dialog('open');
@@ -34,6 +41,26 @@ $('.permdialog_deny_info').click( function() {
     new_dialog.text(explanation_text);
 });
 
+//missing users even though existing permissions (Hard 3)
+$('.permdialog_missing_users_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Still Missing Permissions?");
+    new_dialog.dialog('open');
+
+    let explanation_text = "If you are seeing inherited permissions for users in the table below but are not seeing any permissions in the normal Permissions window, it may be that while the users have the permissions, they have not yet been added to the file/folder."
+
+    new_dialog.text(explanation_text);
+});
+
+$('.permdialog_perm_inherit_recommendation').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Learn about Inheritance");
+    new_dialog.dialog('open');
+
+    let explanation_text = "If you want this file/folder to have the same permissions as its parent folder, then the best way to do this is to use inherited permissions, which can be accessed in Advanced settings."
+
+    new_dialog.text(explanation_text);
+});
+
+//get file path on click
 $(document).on( "click", '.file', function() {
     //when click on file, show permissions for the selected user
     //user must be selected for permissions to show
@@ -41,10 +68,10 @@ $(document).on( "click", '.file', function() {
     $('#permissions-panel').attr('filepath', fp.substring(0, fp.length-4));
     
     //when file is selected, change background color to highlight
-    $('.file').css("background-color", "white");
-    $('.file').css("color", "black");
-    $(this).css("background-color", "#007fff");
-    $(this).css("color", "white");
+    // $('.file').css("background-color", "white");
+    // $('.file').css("color", "black");
+    // $(this).css("background-color", "#007fff");
+    // $(this).css("color", "white");
 });
 
 // ---- Display file structure ----

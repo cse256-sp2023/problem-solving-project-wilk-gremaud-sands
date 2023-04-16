@@ -211,8 +211,7 @@ function define_grouped_permission_checkboxes(id_prefix, which_groups = null) {
     let group_table = $(`
     <table id="${id_prefix}" class="ui-widget-content" width="100%">
         <tr id="${id_prefix}_header">
-            <th id="${id_prefix}_header_p" width="99%">Permissions for <span id="${id_prefix}_header_username"></span>
-            </th>
+            <th id="${id_prefix}_header_p" width="99%"><span id="${id_prefix}_info_icon" class="fa fa-info-circle permdialog_perm_inherit_recommendation"></span>Permissions for <span id="${id_prefix}_header_username"></th>
             <th id="${id_prefix}_header_allow">Allow</th>
             <th id="${id_prefix}_header_deny">Deny <span id="${id_prefix}_info_icon" class="fa fa-info-circle permdialog_deny_info"></th>
         </tr>

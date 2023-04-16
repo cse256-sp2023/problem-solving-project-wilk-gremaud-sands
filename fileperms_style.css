@@ -2,11 +2,12 @@
     padding: 8;
     border-bottom: 1px solid #dddddd;
 }
-
+/* if clicking on the file doesn't end up doing anything, then hover state will only confuse user because hover state usually indicates to user that 
+    something is clickable. We can put it back if we decide clicking will do something.
 .file:hover{
     background-color: rgb(172, 170, 170);
 }
-
+*/
 .section {
     margin-bottom: 5px;
 }

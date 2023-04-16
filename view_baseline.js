@@ -8,7 +8,7 @@ show_starter_dialogs = false // set this to "false" to disable the survey and 3-
 perm_dialog = define_new_dialog('permdialog', title='Permissions', options = {
     // The following are standard jquery-ui options. See https://jqueryui.com/dialog/
     height: 500,
-    width: 400,
+    width: 500,
     buttons: {
         OK:{
             text: "OK",
@@ -78,7 +78,7 @@ cant_remove_dialog = define_new_dialog('cant_remove_inherited_dialog', 'Security
 cant_remove_dialog.html(`
 <div id="cant_remove_text">
     You can't remove <span id="cant_remove_username_1" class = "cant_remove_username"></span> because this object is inheriting permissions from 
-    its parent. To remove <span id="cant_remove_username_2" class = "cant_remove_username"></span>, you must prevent this object from inheriting permissions.
+    its parent. To remove <span id="cant_remove_username_2" class = "cant_remove_username"></span>, you must prevent this object from inheriting permissions, which can be found under the "Advanced" tab.
     Turn off the option for inheriting permissions, and then try removing <span id="cant_remove_username_3" class = "cant_remove_username"></span>  again.
 </div>`)
 
@@ -320,7 +320,7 @@ $( "#advtabs" ).tabs({
 let adv_contents = $(`#advdialog`).dialog({
     position: { my: "top", at: "top", of: $('#html-loc') },
     width: 700,
-    height: 450,
+    height: 550,
     modal: true,
     autoOpen: false,
     appendTo: "#html-loc",
@@ -355,9 +355,9 @@ $('#adv_perm_inheritance').change(function(){
     else {
         // has just been turned off - pop up dialog with add/remove/cancel
         $(`<div id="add_remove_cancel" title="Security">
-            You are changing inherited Permissions.<br/>
-            - Click Covert to change inherited permission into explicit permissions<br/>
-            - Click Remove to remove completely inherited parent permissions<br/>
+            You are changing inherited Permissions.<br/><br>
+            - Click Convert to change all inherited permissions into explicit permissions <em>(best for modifying only <b>one</b> or more user's permissions)</em><br/>
+            - Click Remove to remove completely all inherited parent permission rules <em>(best for modifying <b>all</b> user permissions)</em><br/>
         </div>`).dialog({ // TODO: don't create this dialog on the fly
             modal: true,
             width: 400,
@@ -365,7 +365,7 @@ $('#adv_perm_inheritance').change(function(){
             position: { my: "top", at: "top", of: $('#html-loc') },
             buttons: {
                 Add: {
-                    text: "Add",
+                    text: "Convert",
                     id: "adv-inheritance-add-button",
                     click: function() {
                         let filepath = $('#advdialog').attr('filepath')
