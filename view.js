@@ -105,7 +105,7 @@ $('.permdialog_Full_control_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Learn about Full Control");
     new_dialog.dialog('open');
 
-    let explanation_text = "Users with full control have all of the above permissions (Read, Write, Read/Execute, and Modify).";
+    let explanation_text = "Users with full control have all of the above permissions (Read, Write, Read/Execute, and Modify). They have full permissions for the file/folder.";
 
     new_dialog.text(explanation_text);
 });
