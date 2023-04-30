@@ -9,4 +9,5 @@ Hard 3 (lost-inheritance):
 added additional instructions about how to user inheritance in the advanced controls. 
 added info icon to "Permissions for" to recommend using inheritance if they want this file to have same inheritance as parent. This is the correct path for Hard 3.
 
-added info buttons for all permissions in the main permission box
+Easy 3 (add full permission):
+added info buttons for all standard permissions in the main permission box. Info box for full control says that it will add full permissions for a given user.
