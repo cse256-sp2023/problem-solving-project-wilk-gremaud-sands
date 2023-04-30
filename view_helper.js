@@ -211,7 +211,7 @@ function define_grouped_permission_checkboxes(id_prefix, which_groups = null) {
     let group_table = $(`
     <table id="${id_prefix}" class="ui-widget-content" width="100%">
         <tr id="${id_prefix}_header">
-            <th id="${id_prefix}_header_p" width="99%"><span id="${id_prefix}_info_icon" class="fa fa-info-circle permdialog_perm_inherit_recommendation"></span>Permissions for <span id="${id_prefix}_header_username"></th>
+            <th id="${id_prefix}_header_p" width="99%">Permissions <span id="${id_prefix}_info_icon" class="fa fa-info-circle permdialog_perm_inherit_recommendation"></span> for <span id="${id_prefix}_header_username"></th>
             <th id="${id_prefix}_header_allow">Allow</th>
             <th id="${id_prefix}_header_deny">Deny <span id="${id_prefix}_info_icon" class="fa fa-info-circle permdialog_deny_info"></th>
         </tr>
@@ -224,7 +224,7 @@ function define_grouped_permission_checkboxes(id_prefix, which_groups = null) {
     // For each permissions group, create a row:
     for(let g of which_groups){
         let row = $(`<tr id="${id_prefix}_row_${g}">
-            <td id="${id_prefix}_${g}_name">${g}</td>
+            <td id="${id_prefix}_${g}_name">${g} <span id="${id_prefix}_info_icon" class="fa fa-info-circle permdialog_${g}_info"></span></td>
         </tr>`)
         for(let ace_type of ['allow', 'deny']) {
             row.append(`<td id="${id_prefix}_${g}_${ace_type}_cell">

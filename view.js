@@ -12,6 +12,10 @@ $('#wrapper').append($('<br><br><div style="margin-left: 3vw;"><p>How do file pe
 $('#adv_perm_entries_text').append("<span id=\"${id_prefix}_info_icon\" class=\"fa fa-info-circle permdialog_missing_users_info\"></span>");
 $('#adv_permissions_tab').prepend("<p>To use inherited permissions, user(s) must first be added to the file/folder, and <i>then</i> inherited permissions may be turned on by checking \"Inherit Parent Permissions.\"\nSimilarly, inherited permissions must be removed from a user before removing them from a file/folder.</p><br>");
 
+////////////////////////////
+//  Permdialog popup boxes
+///////////////////////////
+
 //permission panel (unused)
 $('.perm_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Permission");
@@ -36,7 +40,7 @@ $('.permdialog_deny_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Override Capabilities of Deny");
     new_dialog.dialog('open');
 
-    let explanation_text = "DENY IS MORE POWERFUL THAN ALLOW! \n Marking deny for a user will disallow the user from that action, regardless of any allow permissions they may have previously inherited."
+    let explanation_text = "DENY IS MORE POWERFUL THAN ALLOW! \n Marking deny for a user will explicitly disallow the user from that action, regardless of any allow permissions they may have previously inherited.";
 
     new_dialog.text(explanation_text);
 });
@@ -46,7 +50,7 @@ $('.permdialog_missing_users_info').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Still Missing Permissions?");
     new_dialog.dialog('open');
 
-    let explanation_text = "If you are seeing inherited permissions for users in the table below but are not seeing any permissions in the normal Permissions window, it may be that while the users have the permissions, they have not yet been added to the file/folder."
+    let explanation_text = "If you are seeing inherited permissions for users in the table below but are not seeing any permissions in the normal Permissions window, it may be that while the users have the permissions, they have not yet been added to the file/folder.";
 
     new_dialog.text(explanation_text);
 });
@@ -55,7 +59,62 @@ $('.permdialog_perm_inherit_recommendation').click( function() {
     var new_dialog = define_new_dialog("dialog_1", "Learn about Inheritance");
     new_dialog.dialog('open');
 
-    let explanation_text = "If you want this file/folder to have the same permissions as its parent folder, then the best way to do this is to use inherited permissions, which can be accessed in Advanced settings."
+    let explanation_text = "If you want this file/folder to have the same permissions as its parent folder, then the best way to do this is to use inherited permissions, which can be accessed in Advanced settings.";
+
+    new_dialog.text(explanation_text);
+});
+
+// info boxes for standard permissions
+$('.permdialog_Read_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Learn about Read");
+    new_dialog.dialog('open');
+
+    let explanation_text = "Read access refers only to a user's ability to view a file/folder and its subcontents. It does not include the user's ability to modify the file/folder, run the file, or change the contents of the file.";
+
+    new_dialog.text(explanation_text);
+});
+
+$('.permdialog_Write_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Learn about Write");
+    new_dialog.dialog('open');
+
+    let explanation_text = "Write access refers to the user's ability to change the contents of the file.";
+
+    new_dialog.text(explanation_text);
+});
+
+$('.permdialog_Read_Execute_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Learn about Read/Execute");
+    new_dialog.dialog('open');
+
+    let explanation_text = "Read/Execute access includes read permissions + the ability to run files.";
+
+    new_dialog.text(explanation_text);
+});
+
+$('.permdialog_Modify_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Learn about Modify");
+    new_dialog.dialog('open');
+
+    let explanation_text = "Modify access refers to the user's ability to view and modify files and file properties, including deleting and adding files to a directory or file properties to a file.";
+
+    new_dialog.text(explanation_text);
+});
+
+$('.permdialog_Full_control_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Learn about Full Control");
+    new_dialog.dialog('open');
+
+    let explanation_text = "Users with full control have all of the above permissions (Read, Write, Read/Execute, and Modify).";
+
+    new_dialog.text(explanation_text);
+});
+
+$('.permdialog_Special_permissions_info').click( function() {
+    var new_dialog = define_new_dialog("dialog_1", "Learn about Special Permissions");
+    new_dialog.dialog('open');
+
+    let explanation_text = "Special Permissions refer to any specific permissions set in the advanced settings. This box will be ticked if any permissions are set in the advanced settings.";
 
     new_dialog.text(explanation_text);
 });
